@@ -14,6 +14,7 @@ print("Hello! Today, we will be playing the game \"Hangman\"!"
       "it will be counted as a wrong guess. "
       "\n(Disclaimer - you cannot use words to try to find the letters of the secret word "
       "because the letters in that word won't be counted as separate letters.)"
+      "\n6. Guesses can only be lowercase. Uppercase ones will be converted to lowercase."
       "\nGood luck!🍀")
 
 with open("hangman_data.json", "r") as file:
@@ -49,8 +50,17 @@ secret_word_starting_shown_letters()
 print(f"The secret word is: {''.join(secret_word_indexes_list)}.")
 
 while True:
+       print()
     letter_found = False
-    letter_guess = input("Give your guess: ")
+    invalid_letter = False
+
+    letter_guess = input("Give your guess: ").lower()
+    for i in range(len(letter_guess)):
+        if ord(letter_guess[i]) not in range(ord("a"), ord("z") + 1):
+            invalid_letter = True
+    if invalid_letter:
+        print("Invalid letter found! Try again!")
+        continue
 
     if letter_guess == secret_word:
         secret_word_found = True
@@ -71,7 +81,7 @@ while True:
         break
 
     if letter_found:
-        print("You guessed the letter! Good job!")
+        print("You guessed a letter! Good job!")
         print(f"Guessed letters: {''.join(secret_word_indexes_list)}")
     else:
         wrong_guesses += 1
