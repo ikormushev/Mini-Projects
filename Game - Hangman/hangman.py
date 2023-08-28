@@ -14,7 +14,6 @@ print("Hello! Today, we will be playing the game \"Hangman\"!"
       "it will be counted as a wrong guess. "
       "\n(Disclaimer - you cannot use words to try to find the letters of the secret word "
       "because the letters in that word won't be counted as separate letters.)"
-      "\n6. Guesses can only be lowercase. Uppercase ones will be converted to lowercase."
       "\nGood luck!🍀")
 
 with open("hangman_data.json", "r") as file:
