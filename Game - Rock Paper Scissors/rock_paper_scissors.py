@@ -50,7 +50,8 @@ def enemy_winner():
 
 
 while True:
-    ally_guess = input("Give your try: ")
+    print()
+    ally_guess = input("Give your try: ").lower()
     if ally_guess not in guesses_list:
         print(f"Give a valid guess - rock, paper or scissors!")
         continue
