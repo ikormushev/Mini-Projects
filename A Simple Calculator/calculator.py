@@ -42,7 +42,7 @@ while True:
         if program_stop or program_clear:
             break
 
-        first_command = input("Number: ")
+        first_command = input("Number: ").lower()
         if first_command == "stop":
             program_stop = True
             break
@@ -68,7 +68,7 @@ while True:
             print(f"Result: {total_result}.")
 
         while True:
-            second_command = input("Operator: ")
+            second_command = input("Operator: ").lower()
             if second_command == "stop":
                 program_stop = True
                 break
